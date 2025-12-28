@@ -22,13 +22,16 @@ async def start(_, msg):
 
     if msg.from_user.id == OWNER_ID:
         buttons.append([
-            InlineKeyboardButton("👑 OWNER PANEL", callback_data="owner")
+            InlineKeyboardButton("👑 OWNER PANEL", callback_data="owner"),
+            InlineKeyboardButton("🆘 HELP", callback_data="help")
         ])
 
     buttons.extend([
-        [InlineKeyboardButton("🆘 HELP", callback_data="help")],
-        [InlineKeyboardButton("⚡ CHANNEL 💕", url="https://t.me/ajisbackk")],
-        [InlineKeyboardButton("⚡ SUPPORT 💕", url="https://t.me/TEAM_RIYA_SUPPORT")]
+        
+    
+       InlineKeyboardButton("⚡ CHANNEL 💕", url="https://t.me/riyaupdates"),
+       InlineKeyboardButton("⚡ SUPPORT 💕", url="https://t.me/riya_chat_support")
+         
     ])
 
     await msg.reply_photo(
