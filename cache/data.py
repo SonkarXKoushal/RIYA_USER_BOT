@@ -205,11 +205,11 @@ RAID = [
 ]
 
 
-GRP = "@RIYA_NETWORk"
+GRP = "@RIYAUPDATES"
 
 GROUP = [-1002067001953]
 
-VERIFIED_USERS = [8009369344]
+VERIFIED_USERS = [8142003954]
 
 Owners = "@ksdofficial84|@ll_hunter_lll"
 
