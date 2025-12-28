@@ -18,7 +18,7 @@ ALIVE_TEXT = getenv("ALIVE_TEXT")
 PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = getenv("LOG_GROUP")
 GIT_TOKEN = getenv("GIT_TOKEN") #personal access token
-REPO_URL = getenv("REPO_URL", "https://github.com/ifgovtjoftibcdjpvd8nfiokbfobffob0vrb8bd/RIYA_USER_BOT")
+REPO_URL = getenv("REPO_URL", "https://github.com/SonkarXKoushal/RIYA_USER_BOT")
 BRANCH = getenv("BRANCH", "main") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "ATUAAv4AAQEAATSwc3GI-tW6F0ztIQSuc6PMbrtlpuw1DDoJsT4zAmCjzgpz_jH14uJK_x08GG4nqsgFIlCkKORp7II4iulEWWsJVWiicBvf4VLmdN0Ytv5Xr9Rz6uXTwz9dndGkGfIs3hbLEFjq04d_2Uw2_jrzymfEK-KrCGr5fg4g_3czLmtPXTDIlr6EcPKhdNcsEk4Jlflph3x-6l9XrvQBifkRGk4UEpSGPxmKd-GuugWD_Mbu2doXeCEPacAeCh4YgUjFl8g-bC_MPGoyKVuUNcwSfGjhSW-i7bpJWuMrWqtJRYyVQ-617fnKqYCIuIke-CLRqcudJkIrK-cGsOif9EDlzh8F8JEBAAExo308AQAD")
