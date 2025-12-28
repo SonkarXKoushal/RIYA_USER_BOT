@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # 🔴 APNI NUMERIC TELEGRAM ID
-OWNER_ID = 123456789
+OWNER_ID = 8142003954
 
 MAIN_TEXT = (
     "✦𝗛𝗘𝗬..! 𝗧𝗛𝗜𝗦..!!👋 𝗥𝗜𝗬𝗔 𝗨𝗦𝗘𝗥 𝗕𝗢𝗧\n\n"
