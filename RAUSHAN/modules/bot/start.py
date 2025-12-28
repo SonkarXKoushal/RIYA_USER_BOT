@@ -3,7 +3,6 @@ from config import ALIVE_PIC
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# 🔴 APNI NUMERIC TELEGRAM ID
 OWNER_ID = 8142003954
 
 MAIN_TEXT = (
@@ -20,18 +19,25 @@ MAIN_TEXT = (
 async def start(_, msg):
     buttons = []
 
+    # ROW 1 → HELP + OWNER (owner ko hi dikhega)
     if msg.from_user.id == OWNER_ID:
         buttons.append([
-            InlineKeyboardButton("👑 OWNER PANEL", callback_data="owner"),
+            InlineKeyboardButton("🆘 HELP", callback_data="help"),
+            InlineKeyboardButton("👑 OWNER", callback_data="owner")
+        ])
+    else:
+        buttons.append([
             InlineKeyboardButton("🆘 HELP", callback_data="help")
         ])
 
-    buttons.extend([
-        
-    
-       InlineKeyboardButton("⚡ CHANNEL 💕", url="https://t.me/riyaupdates"),
-       InlineKeyboardButton("⚡ SUPPORT 💕", url="https://t.me/riya_chat_support")
-         
+    # ROW 2 → SUPPORT
+    buttons.append([
+        InlineKeyboardButton("⚡ SUPPORT", url="https://t.me/riya_chat_support")
+    ])
+
+    # ROW 3 → UPDATES
+    buttons.append([
+        InlineKeyboardButton("⚡ UPDATES", url="https://t.me/riyaupdates")
     ])
 
     await msg.reply_photo(
@@ -40,7 +46,22 @@ async def start(_, msg):
         reply_markup=InlineKeyboardMarkup(buttons)
     )
 
-# ================= OWNER PANEL =================
+# ================= HELP =================
+@app.on_callback_query(filters.regex("^help$"))
+async def help_menu(_, cb):
+    await cb.message.edit_caption(
+        caption=(
+            "🆘 **HELP MENU**\n\n"
+            "• /start – bot start kare\n"
+            "• /clone – userbot clone kare\n\n"
+            "Baaki features baad me add honge."
+        ),
+        reply_markup=InlineKeyboardMarkup([
+            [InlineKeyboardButton("⬅ BACK", callback_data="back")]
+        ])
+    )
+
+# ================= OWNER =================
 @app.on_callback_query(filters.regex("^owner$"))
 async def owner_panel(_, cb):
     if cb.from_user.id != OWNER_ID:
@@ -49,31 +70,14 @@ async def owner_panel(_, cb):
     await cb.message.edit_caption(
         caption=(
             "👑 **OWNER PANEL**\n\n"
-            "Available controls:\n"
-            "• /broadcast – message sabko bhejo\n"
-            "• /stats – bot stats\n"
-            "• /ban – user block\n"
-            "• /unban – unblock user\n\n"
-            "⚠️ Commands baad me implement kiye ja sakte hain."
+            "• /broadcast\n"
+            "• /stats\n"
+            "• /ban\n"
+            "• /unban\n\n"
+            "Owner-only controls."
         ),
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("⬅ Back", callback_data="back")]
-        ])
-    )
-
-# ================= HELP =================
-@app.on_callback_query(filters.regex("^help$"))
-async def help_menu(_, cb):
-    await cb.message.edit_caption(
-        caption=(
-            "🆘 **HELP MENU**\n\n"
-            "Available Commands:\n\n"
-            "• /start → bot start kare\n"
-            "• /clone → userbot clone kare\n\n"
-            "📌 Baaki commands future update me add honge."
-        ),
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("⬅ Back", callback_data="back")]
+            [InlineKeyboardButton("⬅ BACK", callback_data="back")]
         ])
     )
 
@@ -84,13 +88,19 @@ async def back_menu(_, cb):
 
     if cb.from_user.id == OWNER_ID:
         buttons.append([
-            InlineKeyboardButton("👑 OWNER PANEL", callback_data="owner")
+            InlineKeyboardButton("🆘 HELP", callback_data="help"),
+            InlineKeyboardButton("👑 OWNER", callback_data="owner")
+        ])
+    else:
+        buttons.append([
+            InlineKeyboardButton("🆘 HELP", callback_data="help")
         ])
 
-    buttons.extend([
-        [InlineKeyboardButton("🆘 HELP", callback_data="help")],
-        [InlineKeyboardButton("⚡ CHANNEL 💕", url="https://t.me/ajisbackk")],
-        [InlineKeyboardButton("⚡ SUPPORT 💕", url="https://t.me/TEAM_RIYA_SUPPORT")]
+    buttons.append([
+        InlineKeyboardButton("⚡ SUPPORT", url="https://t.me/riya_chat_support")
+    ])
+    buttons.append([
+        InlineKeyboardButton("⚡ UPDATES", url="https://t.me/riyaupdates")
     ])
 
     await cb.message.edit_caption(
